@@ -1,0 +1,22 @@
+name: app
+description: Your app description
+
+environment:
+  sdk: ">=2.15.0 <3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  permission_handler: ^10.4.2
+  webview_flutter: ^3.0.0
+  http: ^0.13.4
+  flutter_webview_plugin: ^0.4.0
+
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+flutter:
+  uses-material-design: true
+
