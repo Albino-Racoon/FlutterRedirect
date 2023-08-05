@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "804156325159",
+    "project_id": "unikatko-1239b",
+    "storage_bucket": "unikatko-1239b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:804156325159:android:1723de5896a19a3740bd02",
+        "android_client_info": {
+          "package_name": "com.example.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "804156325159-a31svghvg4e8c45r69jrof7bcfkji469.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDupwx8QZ4npVLdKYqkJBm16yk8DufvqNs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "804156325159-a31svghvg4e8c45r69jrof7bcfkji469.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
