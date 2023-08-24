@@ -1,5 +1,7 @@
 name: app
 description: Your app description
+version: 1.0.5+6
+
 
 environment:
   sdk: ">=2.15.0 <3.0.0"

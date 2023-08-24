@@ -4,6 +4,7 @@ import 'firebase_options.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_webview_plugin/flutter_webview_plugin.dart';
+import 'package:permission_handler/permission_handler.dart'; // <-- Import the permission handler
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -20,6 +21,9 @@ void main() async {
   // Request permission for notifications
   await FirebaseMessaging.instance.requestPermission();
 
+  // Request storage permission <-- New addition
+  await _requestStoragePermission();
+
   runApp(RedirectApp());
 
   FirebaseMessaging.onMessage.listen((RemoteMessage message) {
@@ -31,6 +35,13 @@ void main() async {
     // Handle the received message when the app is opened from a terminated state
     print('Opened app from terminated state: ${message.notification?.title}');
   });
+}
+
+Future<void> _requestStoragePermission() async {
+  var status = await Permission.storage.status;
+  if (!status.isGranted) {
+    await Permission.storage.request();
+  }
 }
 
 class RedirectApp extends StatelessWidget {
