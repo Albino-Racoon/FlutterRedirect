@@ -1,0 +1,37 @@
+name: Build and Analyze
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    types: [opened, synchronize, reopened]
+
+jobs:
+  sonarcloud:
+    name: SonarCloud Analysis
+    runs-on: ubuntu-latest
+    
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          flutter-version: '3.x'
+          channel: 'stable'
+
+      - name: Get Dependencies
+        working-directory: ./app
+        run: flutter pub get
+
+      - name: Run Tests with Coverage
+        working-directory: ./app
+        run: flutter test --coverage
+
+      - name: SonarCloud Scan
+        uses: SonarSource/sonarcloud-scan-action@master
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }} 
